@@ -5,7 +5,6 @@ import { Utente } from 'src/app/model/Utente';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
-import { AngularFireDatabase } from '@angular/fire/database';
 
 
 
@@ -16,15 +15,18 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class UserComponent  {
 
-  item: Observable<any>;
-  constructor(public afAuth: AngularFireAuth,public loginServ: LoginService,db: AngularFireDatabase) {
-    this.item = db.object('/users/'+this.afAuth.auth.currentUser.uid).valueChanges();
-  }
+  constructor(public afAuth: AngularFireAuth,public loginServ: LoginService) {  }
+  
   login() {
-    this.loginServ.login();
-
+    this.loginServ.login();  
   }
   logout() {
     this.loginServ.logout();
+  }
+
+  getProfilo(userId){
+    if(this.afAuth.user != null){
+      this.loginServ.getProfilo(this.afAuth.auth.currentUser.uid);
+    }
   }
 }

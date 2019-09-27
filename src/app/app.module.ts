@@ -4,11 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms'
-import * as firebase from 'firebase';
+
 import { UserComponent } from './components/user/user.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule, AngularFirestore} from '@angular/fire/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+
 
 
   
@@ -24,10 +28,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
-    
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

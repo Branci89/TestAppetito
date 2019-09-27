@@ -7,6 +7,8 @@ import  "firebase/auth";
 import "firebase/firestore";
 import { Utente } from '../model/Utente';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 
 
 
@@ -16,7 +18,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class LoginService {
   
   private user: firebase.User
-  constructor(public afAuth: AngularFireAuth) { }
+  constructor(public afAuth: AngularFireAuth,public db: AngularFireDatabase) { }
 
   login() {
     this.afAuth.auth.signInWithEmailAndPassword("cbr_5@hotmail.it","claudio").catch(function error(error){
@@ -26,6 +28,10 @@ export class LoginService {
 
   logout(){
     this.afAuth.auth.signOut();
+  }
+
+  getProfilo(userId){
+       
   }
 
 
