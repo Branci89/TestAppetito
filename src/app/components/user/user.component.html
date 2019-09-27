@@ -1,0 +1,11 @@
+
+<div *ngIf="user!=null; else elseBlock">
+    <p>{{user.nome}}</p>
+    <p>{{user.email}}</p>
+    <img [src]= "user.img" width=200>
+</div>
+<ng-template #elseBlock>
+    <p>Non sei Loggato</p>
+    <p>Devi prima effettuare il login</p>
+</ng-template>
+<button (click)="login()"> LOGIN </button> <button (click)="logoff()"> LOGoff </button>
