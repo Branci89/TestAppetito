@@ -6,6 +6,7 @@ import * as firebase from 'firebase';
 import  "firebase/auth";
 import "firebase/firestore";
 import { Utente } from '../model/Utente';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 
@@ -15,27 +16,16 @@ import { Utente } from '../model/Utente';
 export class LoginService {
   
   private user: firebase.User
-  constructor() { }
+  constructor(public afAuth: AngularFireAuth) { }
 
-  login(): firebase.User {
-   firebase.auth().signInWithEmailAndPassword("cbr_5@hotmail.it","claudio").catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // [START_EXCLUDE]
-    if (errorCode === 'auth/wrong-password') {
-      alert('Wrong password.');
-    } else {
-      alert(errorMessage);
-    }
-    console.log(error);
-        
-  });
-  return firebase.auth().currentUser;
+  login() {
+    this.afAuth.auth.signInWithEmailAndPassword("cbr_5@hotmail.it","claudio").catch(function error(error){
+      alert(error);
+    });
 }
 
   logout(){
-    firebase.auth().signOut();
+    this.afAuth.auth.signOut();
   }
 
 
