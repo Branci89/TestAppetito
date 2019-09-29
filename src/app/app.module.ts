@@ -12,6 +12,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule, AngularFirestore} from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { LoginComponent } from './login/login.component';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
 
 
 
@@ -23,7 +24,8 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     AppComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    UpdateuserComponent
   ],
   imports: [
     BrowserModule,
