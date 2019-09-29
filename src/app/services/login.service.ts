@@ -22,14 +22,16 @@ export class LoginService {
   private profiloUtente: Utente;
   constructor(public afAuth: AngularFireAuth,public db: AngularFireDatabase) { }
 
-  login() {
-    this.afAuth.auth.signInWithEmailAndPassword("cbr_5@hotmail.it","claudio")
+  login(_email: string , _pass: string, callback: Function){
+    this.afAuth.auth.signInWithEmailAndPassword(_email,_pass)
     .then(
       data =>{
-        this.db.object<Utente>('/users/'+this.afAuth.auth.currentUser.uid).valueChanges()
+        this.db.object<Utente>('/restaurants/'+this.afAuth.auth.currentUser.uid).valueChanges()
         .subscribe(
-          data => { this.fillUtente(data);},
-          error => { console.log(error)}
+          data => { this.fillUtente(data); 
+              callback(data);
+            },
+          error => { callback(error)}
         );
       }
     );
@@ -40,7 +42,7 @@ export class LoginService {
   }
 
   getProfilo(userId) {
-    this.db.object<Utente>('/users/'+userId).valueChanges().subscribe(
+    this.db.object<Utente>('/restaurants/'+userId).valueChanges().subscribe(
       data => { this.fillUtente(data);
                console.log(data) },
       error => { console.log(error) 

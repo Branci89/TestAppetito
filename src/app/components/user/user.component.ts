@@ -5,6 +5,7 @@ import { Utente } from 'src/app/model/Utente';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -17,16 +18,12 @@ import { Observable } from 'rxjs';
 export class UserComponent  {
 
  userProf: Utente;
-  constructor(public afAuth: AngularFireAuth,public loginServ: LoginService) {  }
+ id = this.actRout.snapshot.params['id'];
+  constructor(public actRout: ActivatedRoute, public afAuth: AngularFireAuth,public loginServ: LoginService) { 
+    this.userProf = this.loginServ.getPorifiloUtente();
+   }
   
-  login() {
-    this.loginServ.login();
-    
-  }
-  logout() {
-    this.loginServ.logout();
-  }
-
+  
   getProfilo() {
     if(this.afAuth.user != null){
        this.loginServ.getProfilo(this.afAuth.auth.currentUser.uid);
