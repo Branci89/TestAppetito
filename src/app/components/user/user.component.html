@@ -1,6 +1,13 @@
-<div *ngIf="afAuth.user | async as user; else showLogin">
-    <h1>Hello {{ user.email }}!</h1>
-    <button (click)="logout()">Logout</button> <button (click)="getProfilo()">Profilo</button>
+<div class="w3-row" *ngIf="afAuth.user | async as user; else showLogin">
+    <div *ngIf="userProf != null">
+      <img [src]="userProf.photo" width="100">
+      <table>
+        <tr><th>Nome</th> <td> {{userProf.name}} </td></tr>
+        <tr><th>Email</th> <td>{{userProf.email}} </td></tr>
+        <tr><th>Phone</th> <td> {{userProf.phone}} </td></tr>
+      </table>
+    </div>
+    <button (click)="logout()">Logout</button> <button (click)="getProfilo()">Profilo</button> <button (click)="test()">test</button>
   </div>
   <ng-template #showLogin>
     <p>Please login.</p>

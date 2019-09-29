@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 
 
 
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -15,18 +16,24 @@ import { Observable } from 'rxjs';
 })
 export class UserComponent  {
 
+ userProf: Utente;
   constructor(public afAuth: AngularFireAuth,public loginServ: LoginService) {  }
   
   login() {
-    this.loginServ.login();  
+    this.loginServ.login();
+    
   }
   logout() {
     this.loginServ.logout();
   }
 
-  getProfilo(userId){
+  getProfilo() {
     if(this.afAuth.user != null){
-      this.loginServ.getProfilo(this.afAuth.auth.currentUser.uid);
+       this.loginServ.getProfilo(this.afAuth.auth.currentUser.uid);
     }
+  }
+
+  test(){
+    this.userProf = this.loginServ.getPorifiloUtente();
   }
 }

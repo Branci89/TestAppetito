@@ -1,6 +1,7 @@
 export class Utente {
-    nome: string;
-    telefono: string;
-    img: string;
+    email: string;
+    name: string;
+    phone: string;
+    photo: string;
 
 }
