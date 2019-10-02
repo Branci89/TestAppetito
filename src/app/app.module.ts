@@ -11,8 +11,9 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule, AngularFirestore} from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { LoginComponent } from './login/login.component';
-import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { LoginComponent } from './components/login/login.component';
+import { UpdateuserComponent } from './components/updateuser/updateuser.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -25,7 +26,8 @@ import { UpdateuserComponent } from './updateuser/updateuser.component';
     AppComponent,
     UserComponent,
     LoginComponent,
-    UpdateuserComponent
+    UpdateuserComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

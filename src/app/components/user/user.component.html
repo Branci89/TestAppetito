@@ -8,7 +8,9 @@
         <tr><th>Indirizzo</th> <td> {{userProf.address}} </td></tr>
         <tr><th>Rating</th> <td> {{userProf.ratingsNumber}} </td></tr>
       </table>
-      <a [routerLink]="['update']"> Modifica</a>
+      <div>
+        <a [routerLink]="['update']"> Modifica</a>
+      </div>
 
 
       <router-outlet></router-outlet>

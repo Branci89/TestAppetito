@@ -41,11 +41,15 @@ export class LoginService {
     this.afAuth.auth.signOut();
   }
 
-  getProfilo(userId) {
+  getProfilo(userId,_callback: Function) {
     this.db.object<Utente>('/restaurants/'+userId).valueChanges().subscribe(
-      data => { this.fillUtente(data);
-               console.log(data) },
-      error => { console.log(error) 
+      data => { 
+        this.fillUtente(data);
+        _callback(data) ;    
+      },
+      error => { 
+        _callback(error);
+        console.log(error) 
    });
 
   }

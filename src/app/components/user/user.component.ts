@@ -17,8 +17,12 @@ export class UserComponent  {
  userProf: Utente;
  id = this.actRout.snapshot.params['id'];
   constructor(public actRout: ActivatedRoute, public afAuth: AngularFireAuth,public loginServ: LoginService) { 
-    this.userProf = this.loginServ.getPorifiloUtente();
+    this.loginServ.getProfilo(this.id, (data)=>{
+      this.userProf = data;
+    })
   }
+
+  
 
 
 }

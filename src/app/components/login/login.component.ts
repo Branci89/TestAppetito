@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators,ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from '../services/login.service';
-import { Utente } from '../model/Utente';
+import { LoginService } from '../../services/login.service';
+import { Utente } from '../../model/Utente';
 
 
 @Component({
@@ -51,16 +51,16 @@ export class LoginComponent implements OnInit {
           return;
       }
 
-      
+      this.loading = true;
       this.authenticationService.login(this.f.username.value, this.f.password.value, (data)=>{
-        
+        this.loading = false;
         if(this.authenticationService.afAuth.user != null){
           
         let tmp = new Utente();
         tmp = data;
         this.router.navigate(['/users/'+tmp.id]);
         }
-        else(alert(data))
+        else(alert(data));
       });
       
       }      
