@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators,ReactiveFormsModule } from '@angular
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { Utente } from '../../model/Utente';
+import { auth } from 'firebase';
 
 
 @Component({
@@ -25,9 +26,11 @@ export class LoginComponent implements OnInit {
       
   ) {
       // redirect to home if already logged in
-      if (this.authenticationService.afAuth.auth.currentUser != null) { 
-        this.router.navigate(['/users/'+this.authenticationService.afAuth.auth.currentUser.uid]);
-      }
+      this.authenticationService.afAuth.authState.pipe().subscribe((auth)=>{
+        if(auth !=null){
+          this.router.navigate(['/users/'+auth.uid]);
+        }
+      })
   }
 
   ngOnInit() {
