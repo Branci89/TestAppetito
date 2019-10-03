@@ -39,6 +39,7 @@ export class LoginService {
 
   logout(){
     this.afAuth.auth.signOut();
+    this.profiloUtente = null;
   }
 
   getProfilo(userId,_callback: Function) {
