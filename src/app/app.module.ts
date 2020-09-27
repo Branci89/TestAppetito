@@ -15,12 +15,8 @@ import { LoginComponent } from './components/login/login.component';
 import { UpdateuserComponent } from './components/updateuser/updateuser.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule} from '@angular/material';
 
-
-
-
-  
-  ;
 
 @NgModule({
   declarations: [
@@ -39,7 +35,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
