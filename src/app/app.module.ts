@@ -14,6 +14,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { LoginComponent } from './components/login/login.component';
 import { UpdateuserComponent } from './components/updateuser/updateuser.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -37,7 +38,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    BrowserAnimationsModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
