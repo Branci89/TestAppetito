@@ -15,7 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { UpdateuserComponent } from './components/updateuser/updateuser.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule} from '@angular/material';
+import {MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule,MatInputModule} from '@angular/material';
 
 
 @NgModule({
@@ -40,7 +40,7 @@ import {MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatBut
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,MatInputModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]
