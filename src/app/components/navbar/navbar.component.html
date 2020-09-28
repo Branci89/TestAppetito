@@ -1,7 +1,7 @@
 
 <mat-toolbar color="primary" class="header" *ngIf=" authServ.afAuth.user | async as user ; else showLogin">
     <button mat-button >Home</button>
-    <span>Link 1</span>
+    <span><a [routerLink]="['/menu/'+authServ.getPorifiloUtente().id]" >Gestione Menu</a></span>
     <span>Link 2</span>
     <span class="example-spacer"></span>
     <span > Hello {{ authServ.getPorifiloUtente().name }}!</span>

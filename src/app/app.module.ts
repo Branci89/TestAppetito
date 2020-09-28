@@ -16,6 +16,7 @@ import { UpdateuserComponent } from './components/updateuser/updateuser.componen
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule,MatInputModule} from '@angular/material';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatBut
     UserComponent,
     LoginComponent,
     UpdateuserComponent,
-    NavbarComponent
+    NavbarComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

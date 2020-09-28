@@ -1,12 +1,20 @@
 export class Dishes {
-    Menu: Piatto[];
+    Menu: Map<string,Piatto>;
     Offers: Offerta[];
 }
 
-export interface Piatto{
-    id: string;
+export class Piatto {
+    dishID: string;
+    available: number;
+    dishCategory: string;
+    dishId: string;
+    dishName: string;
+    dishPrice: number;
+    dishUri: string;
+    preparationTime: number;
+    totQnt: number;
 }
 
-export interface Offerta{
+export class Offerta{
     id:string;
 }
