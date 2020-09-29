@@ -1,15 +1,17 @@
 
-    <div class="w3-row w3-container" >
-      <div style="display: flex">
-        <img [src]="userProf.photo" width="200">
-        <table class="w3-table w3-quarter">
-          <tr><th>Nome</th> <td> {{userProf.name}} </td></tr>
-          <tr><th>Email</th> <td>{{userProf.email}} </td></tr>
-          <tr><th>Phone</th> <td> {{userProf.phone}} </td></tr>
-          <tr><th>Indirizzo</th> <td> {{userProf.address}} </td></tr>
-          <tr><th>Rating</th> <td> {{userProf.ratingsNumber}} </td></tr>
-        </table>
-      </div>
+    <div>
+      <mat-card>
+        <mat-card-title> {{userProf.name}} </mat-card-title>
+        <img [src]="userProf.photo" style="height:200px; object-fit: contain; ">
+        <mat-card-content>
+          <table style="width: auto; padding: 10px;">
+            <tr><th>Email</th> <td>{{userProf.email}} </td></tr>
+            <tr><th>Phone</th> <td> {{userProf.phone}} </td></tr>
+            <tr><th>Indirizzo</th> <td> {{userProf.address}} </td></tr>
+            <tr><th>Rating</th> <td> {{userProf.ratingsNumber}} </td></tr>
+          </table>
+      </mat-card-content>
+      </mat-card>
     <div>
         <a [routerLink]="['update']"> Modifica</a>
     </div>

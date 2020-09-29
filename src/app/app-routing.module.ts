@@ -9,15 +9,14 @@ import { MenuComponent } from './components/menu/menu.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'home', component: LoginComponent },
+  {path: 'menu/:id', component: MenuComponent },
   { path: 'users/:id', component: UserComponent,
       children: [
         {
           path: 'update',
           component: UpdateuserComponent
         }]
-
-},
-{path: 'menu/:id', component: MenuComponent },
+  }
 ];
 
 @NgModule({

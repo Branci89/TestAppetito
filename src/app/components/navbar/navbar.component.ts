@@ -8,18 +8,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent  {
-
+  public userProf: any;
   
   constructor(public authServ: LoginService,public router: Router) { 
     this.authServ.afAuth.auth.onAuthStateChanged(user => {
       if (!user) {
         // non sei loggato!
         this.router.navigate(['/home/']);
+      } else{
+          authServ.getProfilo(user.uid, (data)=>{
+            this.userProf = data;
+          })
       }
 })
   }
 
-  
   logout(){
     this.authServ.logout();
     

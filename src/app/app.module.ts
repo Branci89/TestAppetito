@@ -15,7 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 import { UpdateuserComponent } from './components/updateuser/updateuser.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule,MatInputModule} from '@angular/material';
+import {MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule,MatInputModule, MatCardModule} from '@angular/material';
 import { MenuComponent } from './components/menu/menu.component';
 
 
@@ -39,6 +39,7 @@ import { MenuComponent } from './components/menu/menu.component';
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    MatCardModule,
     MatSidenavModule,
     MatListModule,
     MatButtonModule,
