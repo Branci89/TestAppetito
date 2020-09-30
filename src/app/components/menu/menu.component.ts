@@ -24,7 +24,7 @@ export class MenuComponent {
         db.object<Map<string, Piatto>>('/dishes/' + this.id + '/menu').valueChanges()
           .subscribe(
             retData => {
-              this.fillDishes(retData);
+              this.piattoList = retData;
             }
           )
       }
@@ -32,10 +32,6 @@ export class MenuComponent {
 
 
 
-  }
-
-  fillDishes(_retData: Map<string, Piatto>) {
-    this.piattoList = _retData;
   }
 
 }

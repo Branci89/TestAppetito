@@ -13,6 +13,7 @@ export class Piatto {
     dishUri: string;
     preparationTime: number;
     totQnt: number;
+    ingredients: String[];
 }
 
 export class Offerta{
