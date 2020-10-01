@@ -1,5 +1,5 @@
 
-<mat-card style="margin: 10px; max-width: 400px;">
+<mat-card style="margin: 10px;">
     <mat-card-title>{{piatto.dishName}}</mat-card-title>
     <img [src]="piatto.dishUri" width="100%" style="height:200px; object-fit: contain; ">
     <mat-card-content><table style="width: auto; padding: 10px;">
@@ -18,7 +18,7 @@
       <tr>
         <tr>
           <td>Ingredienti:</td>
-          <td>{{piatto.dishFixedIngredients}}</td>
+          <td><span *ngFor="let ingr of piatto.dishFixedIngredients">{{ingr}}, </span></td>
         </tr>
         <tr>
         <td>Tempo di Preparazione</td>

@@ -33,9 +33,9 @@
       <table style="width: auto; padding: 10px; text-align: left;">
         <tr *ngFor="let day of userProf.timetable">
           <th>{{day.day}}</th>
-          <td>{{day.lunchSchedule.startTime | date: 'shortTime'}} - {{day.lunchSchedule.endTime | date: 'shortTime'}}
+          <td>Pranzo: {{day.lunchSchedule.startTime | date: 'shortTime'}} - {{day.lunchSchedule.endTime | date: 'shortTime'}}
             <br>
-            {{day.lunchSchedule.startTime | date: 'shortTime'}} - {{day.lunchSchedule.endTime | date: 'shortTime'}}</td>
+            Cena: {{day.lunchSchedule.startTime | date: 'shortTime'}} - {{day.lunchSchedule.endTime | date: 'shortTime'}}</td>
         </tr>
       </table>
     </mat-card-content>
