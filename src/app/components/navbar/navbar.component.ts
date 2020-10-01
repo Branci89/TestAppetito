@@ -7,16 +7,20 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent  {
+export class NavbarComponent implements OnInit {
   public userProf: any;
   
-  constructor(public authServ: LoginService,public router: Router) { 
+  constructor(
+    public authServ: LoginService,
+    public router: Router) { }
+    
+  ngOnInit(): void {
     this.authServ.afAuth.auth.onAuthStateChanged(user => {
       if (!user) {
         // non sei loggato!
         this.router.navigate(['/home/']);
       } else{
-          authServ.getProfilo(user.uid, (data)=>{
+          this.authServ.getProfilo(user.uid, (data)=>{
             this.userProf = data;
           })
       }

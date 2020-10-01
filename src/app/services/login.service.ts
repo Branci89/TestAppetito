@@ -36,7 +36,7 @@ export class LoginService {
     this.profiloUtente = null;
   }
 
-  getProfilo(userId,_callback: Function) {
+  getProfilo(userId: string, _callback: Function) {
     this.db.object<Utente>('/restaurants/'+userId).valueChanges().subscribe(
       data => { 
         this.fillUtente(data);

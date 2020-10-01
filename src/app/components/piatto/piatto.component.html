@@ -1,0 +1,36 @@
+
+<mat-card style="margin: 10px; max-width: 400px;">
+    <mat-card-title>{{piatto.dishName}}</mat-card-title>
+    <img [src]="piatto.dishUri" width="100%" style="height:200px; object-fit: contain; ">
+    <mat-card-content><table style="width: auto; padding: 10px;">
+      <tr>
+        <td>Categoria:</td>
+        <td> {{piatto.dishCategory}}</td>
+      </tr>
+      <tr>
+        <td>Disponibilità:</td>
+        <td>{{piatto.available}}</td>
+      </tr>
+      <tr>
+        <td>Prezzo:</td>
+        <td>{{piatto.dishPrice}} €</td>
+      </tr>
+      <tr>
+        <tr>
+          <td>Ingredienti:</td>
+          <td>{{piatto.dishFixedIngredients}}</td>
+        </tr>
+        <tr>
+        <td>Tempo di Preparazione</td>
+        <td>{{piatto.preparationTime}}</td>
+      </tr>
+      <tr>
+        <td>Total Quantity:</td>
+        <td>{{piatto.totQnt}}</td>
+      </tr>
+    </table>
+    <mat-card-actions style="text-align: right;" >
+      <button mat-button (click) = editPiatto(piatto)>MODIFICA  <mat-icon>create</mat-icon></button>
+    </mat-card-actions>
+  </mat-card-content>
+</mat-card>

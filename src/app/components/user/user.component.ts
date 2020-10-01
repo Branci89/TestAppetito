@@ -12,12 +12,17 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent  {
+export class UserComponent implements OnInit {
 
  userProf: Utente;
  id = this.actRout.snapshot.params['id'];
   
- constructor(public actRout: ActivatedRoute, public afAuth: AngularFireAuth,public loginServ: LoginService) { 
+ constructor(
+   public actRout: ActivatedRoute,
+   public afAuth: AngularFireAuth,
+   public loginServ: LoginService) { }
+   
+  ngOnInit(): void {
     this.loginServ.getProfilo(this.id, (data)=>{
       this.userProf = data;
     })

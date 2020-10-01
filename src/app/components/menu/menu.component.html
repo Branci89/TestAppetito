@@ -1,42 +1,5 @@
-<div   style="display:flex; max-width: 1024px;  justify-content: center; flex-wrap: wrap; margin: 0 auto; ">
- 
-  <mat-card *ngFor="let dish of piattoList | keyvalue" style="width: 30%; margin: 1em;">
-    <mat-card-title>{{dish.value.dishName}}</mat-card-title>
-    <img [src]="dish.value.dishUri" width="100%" style="height:200px; object-fit: contain; ">
-    <mat-card-content><table style="width: auto; padding: 10px;">
-      <tr>
-        <td>Categoria:</td>
-        <td> {{dish.value.dishCategory}}</td>
-      </tr>
-      <tr>
-        <td>Disponibilità:</td>
-        <td>{{dish.value.available}}</td>
-      </tr>
-      <tr>
-        <td>Prezzo:</td>
-        <td>{{dish.value.dishPrice}}</td>
-      </tr>
-      <tr>
-        <tr>
-          <td>Ingredienti:</td>
-          <td>{{dish.value.ingredients}}</td>
-        </tr>
-        <tr>
-        <td>Tempo di Preparazione</td>
-        <td>{{dish.value.preparationTime}}</td>
-      </tr>
-      <tr>
-        <td>Total Quantity:</td>
-        <td>{{dish.value.totQnt}}</td>
-      </tr>
-    </table>
-
-    <mat-card-actions style="float: right;">
-      <button mat-button (click) = editPiatto(dish.value)>MODIFICA  <mat-icon>create</mat-icon></button>
-    </mat-card-actions>
-  </mat-card-content>
-  
-
-</mat-card>
-  <hr>
+<div style="display:flex; max-width: 70%;  justify-content: center; flex-wrap: wrap; margin: 0 auto; ">
+  <span *ngFor="let dish of piattoList | keyvalue">
+    <app-piatto [piatto]="dish.value"></app-piatto>
+  </span>
 </div>

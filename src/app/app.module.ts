@@ -17,6 +17,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule,MatInputModule, MatCardModule} from '@angular/material';
 import { MenuComponent } from './components/menu/menu.component';
+import { PiattoComponent } from './components/piatto/piatto.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { MenuComponent } from './components/menu/menu.component';
     LoginComponent,
     UpdateuserComponent,
     NavbarComponent,
-    MenuComponent
+    MenuComponent,
+    PiattoComponent
   ],
   imports: [
     BrowserModule,
