@@ -3,7 +3,7 @@ export class SharedOrder{
     ownerName: string;
     ownerId: string;
     arrivalTime: number;
-    allOrder: Map<string,Order>
+    allOrders: Map<string,Order>
 }
 
 export class Order{
@@ -11,6 +11,7 @@ export class Order{
     clientId: string;
     clientName: string;
     comment: string;
-    diseshMap: Map<string,number>;
+    dishesMap: Map<string,number>;
+    menuMap: Map<string,number>;
     price: number;
 }

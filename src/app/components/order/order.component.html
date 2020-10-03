@@ -1,5 +1,14 @@
 <mat-card>
     <mat-card-title> {{order.ownerName}}</mat-card-title>
+    <mat-card-content>
+        <div>Ora di Arrivo: {{order.arrivalTime | date: 'shortTime'}}</div>
+        <div>Note: {{order.comment}} </div>
+        <div *ngFor="let ord of order.allOrders | keyvalue">
+            <div>Prezzo: {{ord.value.price}} €</div>
+            <div>Nome Piatto: {{ord.value.dishesMap}} </div>
+            <div>Nome Menu:  {{ord.value.menuMap}}</div>
+        </div>
+    </mat-card-content>
     <mat-card-actions style="text-align: right;" >
         <button mat-button (click) = deleteOrder()>Evadi <mat-icon>done_outline</mat-icon></button>
       </mat-card-actions>

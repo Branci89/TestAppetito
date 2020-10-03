@@ -1,27 +1,43 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import "firebase/firestore";
 import { LoginService } from './login.service';
-import {Dishes} from '../model/Dishes'
+import { Dishes, Piatto } from '../model/Dishes'
 
 @Injectable({
   providedIn: 'root'
 })
-export class DishService {
+export class DishService implements OnInit{
 
-  private user: firebase.User;
-  private DishesList: Dishes[];
-  
-  constructor(user: LoginService,public db: AngularFireDatabase) {
-    this.db.object<Dishes[]>('/dishes'+user.getPorifiloUtente().id).valueChanges()
-    .subscribe(
-      retData => {
-        this.fillDishes(retData);
+
+  private dishesList: Map<string, Piatto>;
+
+  constructor(public user: LoginService, public db: AngularFireDatabase) {
+    
+  }
+  ngOnInit(): void {
+    this.user.afAuth.auth.onAuthStateChanged(user => {
+      if (!user) {
+        // non sei loggato!
+        //this.router.navigate(['/home/']);
+      } else {
+        this.db.object<Map<string, Piatto>>('/dishes/' + user.uid + '/menu').valueChanges()
+          .subscribe(
+            retData => {
+              this.dishesList = retData;
+            }
+          )
       }
-    )
-  }
-  fillDishes(_retData: Dishes[]) {
-    this.DishesList = _retData;
+
+    });
   }
 
+
+  fillDishes(_retData: Dishes[]) {
+    //this.dishesList = _retData;
+  }
+
+  public getDishName(_dishId: string): string {
+    return this.dishesList.get(_dishId).dishName;
+  }
 }
