@@ -1,7 +1,8 @@
 
 <mat-toolbar color="primary" *ngIf=" authServ.afAuth.user | async as user ; else showLogin">
-    <div><a [routerLink] ='home'> Home</a></div>
+    <div><a [routerLink] ="['/home']"> Home</a></div>
     <div><a [routerLink]="['/menu/'+userProf.id]" >Gestione Menu </a></div>
+    <div><a [routerLink]="['/order/'+userProf.id]" >Ordini </a></div>
     <span class="example-spacer"></span>
     <div> Hello {{ userProf.name }}! </div>
     <button mat-button (click)="logout()">Logout</button>

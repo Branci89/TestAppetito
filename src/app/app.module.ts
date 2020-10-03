@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule,MatInputModule, MatCardModule} from '@angular/material';
 import { MenuComponent } from './components/menu/menu.component';
 import { PiattoComponent } from './components/piatto/piatto.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
+import { OrderComponent } from './components/order/order.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { PiattoComponent } from './components/piatto/piatto.component';
     UpdateuserComponent,
     NavbarComponent,
     MenuComponent,
-    PiattoComponent
+    PiattoComponent,
+    OrderListComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

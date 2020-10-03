@@ -4,6 +4,7 @@ import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './components/login/login.component';
 import { UpdateuserComponent } from './components/updateuser/updateuser.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { OrderListComponent } from './components/order-list/order-list.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
           path: 'update',
           component: UpdateuserComponent
         }]
-  }
+  },
+  {path: 'order/:id', component: OrderListComponent },
 ];
 
 @NgModule({
