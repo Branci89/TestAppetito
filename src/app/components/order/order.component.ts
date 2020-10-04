@@ -16,7 +16,7 @@ export class OrderComponent {
   constructor(public db: AngularFireDatabase, public dishServ: DishService) { }
 
   deleteOrder(): void {
-    this.db.object<Map<string,SharedOrder>>('/orders/'+this.id +"/"+this.order.orderId).remove()
+    this.dishServ.deleteOrder(this.id,this.order.orderId);
   }
 
 }

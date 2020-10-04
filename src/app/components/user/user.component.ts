@@ -23,9 +23,9 @@ export class UserComponent implements OnInit {
    public loginServ: LoginService) { }
    
   ngOnInit(): void {
-    this.loginServ.getProfilo(this.id, (data)=>{
-      this.userProf = data;
-    })
+    this.loginServ.getProfilo(this.id).subscribe(profilo => {
+      this.userProf = profilo;
+    });
   }
 
   

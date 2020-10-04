@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
+import { Utente } from 'src/app/model/Utente';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  public userProf: any;
+  public userProf: Utente;
   
   constructor(
     public authServ: LoginService,
@@ -20,9 +21,9 @@ export class NavbarComponent implements OnInit {
         // non sei loggato!
         this.router.navigate(['/home/']);
       } else{
-          this.authServ.getProfilo(user.uid, (data)=>{
-            this.userProf = data;
-          })
+          this.authServ.getProfilo(user.uid).subscribe(user =>{
+            this.userProf = user;
+          });
       }
 })
   }

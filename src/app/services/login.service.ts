@@ -7,6 +7,7 @@ import "firebase/firestore";
 import { Utente } from '../model/Utente';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -36,17 +37,8 @@ export class LoginService {
     this.profiloUtente = null;
   }
 
-  getProfilo(userId: string, _callback: Function) {
-    this.db.object<Utente>('/restaurants/'+userId).valueChanges().subscribe(
-      data => { 
-        this.fillUtente(data);
-        _callback(data) ;    
-      },
-      error => { 
-        _callback(error);
-        console.log(error) 
-   });
-
+  getProfilo(userId: string): Observable<Utente> {
+    return this.db.object<Utente>('/restaurants/' + userId).valueChanges();
   }
 
 

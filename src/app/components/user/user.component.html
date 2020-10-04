@@ -1,37 +1,40 @@
 <div>
   <mat-card>
     <mat-card-title> {{userProf.name}} </mat-card-title>
-    <img [src]="userProf.photo" style="height:200px; object-fit: contain; ">
     <mat-card-content>
-      <table style="width: auto; padding: 10px; text-align: left;">
-        <tr>
-          <th>Email</th>
-          <td>{{userProf.email}} </td>
-        </tr>
-        <tr>
-          <th>Phone</th>
-          <td> {{userProf.phone}} </td>
-        </tr>
-        <tr>
-          <th>Indirizzo</th>
-          <td> {{userProf.address}} </td>
-        </tr>
-        <tr>
-          <th>Rating</th>
-          <td> {{userProf.ratingsNumber}} </td>
-        </tr>
-        <tr>
-          <th>Tipo Cucina:</th>
-          <td> {{userProf.cookingTypes}} </td>
-        </tr>
-        <tr>
-          <th>Tipo Rating:</th>
-          <td> {{userProf.ratingsNumber}} </td>
-        </tr>
-      </table>
+      <div style="display: flex;">
+        <img [src]="userProf.photo" style="height:200px; object-fit: contain; ">
+        <table style="width: 30%; padding: 0px 10px 10px; text-align: left; line-height: 30px;">
+          <tr>
+            <th>Email</th>
+            <td><input mat-input value="{{userProf.email}}"  disabled></td>
+          </tr>
+          <tr>
+            <th>Phone</th>
+            <td><input mat-input value ="{{userProf.phone}}" disabled></td>
+          </tr>
+          <tr>
+            <th>Indirizzo</th>
+            <td><input mat-input value="{{userProf.address}}" disabled>  </td>
+          </tr>
+          <tr>
+            <th>Rating</th>
+            <td> {{userProf.ratingsNumber}} </td>
+          </tr>
+          <tr>
+            <th>Tipo Cucina:</th>
+            <td> {{userProf.cookingTypes}} </td>
+          </tr>
+          <tr>
+            <th>Tipo Rating:</th>
+            <td> {{userProf.ratingsNumber}} </td>
+          </tr>
+        </table>
+        <button style="max-height: 40px;" mat-button (click) = editProfile(piatto)>MODIFICA<mat-icon>create</mat-icon></button>
+    </div>
       <p>Orario di Apertura</p>
-      <table style="width: auto; padding: 10px; text-align: left;">
-        <tr *ngFor="let day of userProf.timetable">
+      <table style="width: 30%; padding: 10px; text-align: left;">
+        <tr *ngFor="let day of userProf.timetable ">
           <th>{{day.day}}</th>
           <td>Pranzo: {{day.lunchSchedule.startTime | date: 'shortTime'}} - {{day.lunchSchedule.endTime | date: 'shortTime'}}
             <br>
@@ -40,9 +43,3 @@
       </table>
     </mat-card-content>
   </mat-card>
-  <div>
-    <a [routerLink]="['update']"> Modifica</a>
-  </div>
-</div>
-
-<router-outlet></router-outlet>

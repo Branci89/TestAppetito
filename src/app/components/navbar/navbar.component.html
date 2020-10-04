@@ -1,5 +1,5 @@
 
-<mat-toolbar color="primary" *ngIf=" authServ.afAuth.user | async as user ; else showLogin">
+<mat-toolbar color="primary" *ngIf=" userProf; else showLogin">
     <div><a [routerLink] ="['/home']"> Home</a></div>
     <div><a [routerLink]="['/menu/'+userProf.id]" >Gestione Menu </a></div>
     <div><a [routerLink]="['/order/'+userProf.id]" >Ordini </a></div>

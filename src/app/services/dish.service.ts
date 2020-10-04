@@ -1,43 +1,31 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import "firebase/firestore";
 import { LoginService } from './login.service';
-import { Dishes, Piatto } from '../model/Dishes'
+import { Piatto } from '../model/Dishes'
+import { Observable, of } from 'rxjs';
+import { SharedOrder } from '../model/Order';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DishService implements OnInit{
+export class DishService {
 
 
   private dishesList: Map<string, Piatto>;
 
-  constructor(public user: LoginService, public db: AngularFireDatabase) {
+  constructor(public user: LoginService, public db: AngularFireDatabase, private router: Router) {
     
   }
-  ngOnInit(): void {
-    this.user.afAuth.auth.onAuthStateChanged(user => {
-      if (!user) {
-        // non sei loggato!
-        //this.router.navigate(['/home/']);
-      } else {
-        this.db.object<Map<string, Piatto>>('/dishes/' + user.uid + '/menu').valueChanges()
-          .subscribe(
-            retData => {
-              this.dishesList = retData;
-            }
-          )
-      }
 
-    });
+  public getDishList(uid: string) : Observable<Map<string,Piatto>> {
+    
+        return this.db.object<Map<string, Piatto>>('/dishes/' + uid + '/menu').valueChanges()
+
   }
 
-
-  fillDishes(_retData: Dishes[]) {
-    //this.dishesList = _retData;
-  }
-
-  public getDishName(_dishId: string): string {
-    return this.dishesList.get(_dishId).dishName;
+  public deleteOrder(_userId: string, _orderid: string) {
+    this.db.object<Map<string,SharedOrder>>('/orders/'+_userId +"/"+_orderid).remove()
   }
 }
